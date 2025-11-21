@@ -1,1 +1,0 @@
-[Live Demo](https://lemonrick.github.io/lucky/)
