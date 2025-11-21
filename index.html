@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lucky Number Generator</title>
+</head>
+<body x-data="lottoJoker()" x-init="generate()">
+<div class="container">
+    <!--<header>
+        <i class="bx bxs-check-shield"></i>
+    </header>
+    <h4>Enter OTP Code</h4>-->
+    <div class="input-field">
+        <template x-for="(num, index) in loto" :key="index">
+            <input type="number" :value="num" disabled />
+        </template>
+    </div>
+
+    <div class="input-field">
+        <template x-for="(num, index) in joker" :key="index">
+            <input type="number" :value="num" disabled />
+        </template>
+    </div>
+
+    <button class="active" @click="generate()">Generate</button>
+</div>
+<script type="module" src="/main.js"></script>
+</body>
+</html>
