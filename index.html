@@ -1,32 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lucky Number Generator</title>
+    <title>Modern Lucky Number Generator</title>
+    <meta property="og:image" content="https://bolt.new/static/og_default.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
 </head>
-<body x-data="lottoJoker()" x-init="generate()">
-<div class="container">
-    <!-- <header>
-        <i class="bx bxs-check-shield"></i>
-    </header>
-    <h4>Enter OTP Code</h4> -->
-    <div class="input-field">
-        <template x-for="(num, index) in loto" :key="index">
-            <input type="number" :value="num" disabled />
-        </template>
-    </div>
-
-    <div class="input-field">
-        <template x-for="(num, index) in joker" :key="index">
-            <input type="number" :value="num" disabled />
-        </template>
-    </div>
-
-    <button class="active" @click="generate()">Generate</button>
-</div>
-<script src="/history.js"></script>
-<script type="module" src="/main.js"></script>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
