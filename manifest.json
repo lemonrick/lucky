@@ -1,6 +1,6 @@
 {
   "name": "Lucky Number Generator",
-  "short_name": "LuckyNumber",
+  "short_name": "Lucky",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#3B82F6",
