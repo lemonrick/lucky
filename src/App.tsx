@@ -56,7 +56,7 @@ function App() {
 
           <button
             onClick={generateNumbers}
-            className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold text-xl py-5 px-8 rounded-2xl shadow-xl transform transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
+            className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold text-xl py-5 px-8 rounded-2xl shadow-xl transform transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center gap-3 cursor-pointer"
           >
             <Sparkles className="w-6 h-6" />
             Generate
