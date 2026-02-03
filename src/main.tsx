@@ -9,11 +9,13 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>
 );
 
+// --- Register Service Worker (non-localhost only) ---
+const isLocalhost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
-// --- Register Service Worker ---
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .catch(err => console.error('SW registration failed:', err));
-    });
+if (!isLocalhost && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .catch((err) => console.error('SW registration failed:', err));
+  });
 }

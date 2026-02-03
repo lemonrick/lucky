@@ -1,25 +1,22 @@
 import { useState } from 'react';
 import { Sparkles } from 'lucide-react';
 
+const generateNumbers = (count: number, max: number): number[] => {
+  // Create array 1 to max
+  const pool = Array.from({ length: max }, (_, i) => i + 1);
+
+  // Fisher–Yates shuffle
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+
+  // Take the first (count) numbers and sort them ascending
+  return pool.slice(0, count).sort((a, b) => a - b);
+};
+
 function App() {
-
-  const generateNumbers = (count: number, max: number): number[] => {
-    // Create array 1 to max
-    const pool = Array.from({ length: max }, (_, i) => i + 1);
-
-    // Fisher–Yates shuffle
-    for (let i = pool.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [pool[i], pool[j]] = [pool[j], pool[i]];
-    }
-
-    // Take the first (count) numbers and sort them ascending
-    return pool.slice(0, count).sort((a, b) => a - b);
-  };
-
-  const [numbers, setNumbers] = useState<number[]>(
-      () => generateNumbers(6, 49)
-  );
+  const [numbers, setNumbers] = useState<number[]>(() => generateNumbers(6, 49));
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center p-4">
@@ -34,9 +31,9 @@ function App() {
 
         <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
           <div className="flex justify-center gap-3 md:gap-4 mb-10">
-            {numbers.map((num, index) => (
+            {numbers.map((num) => (
               <div
-                key={index}
+                key={num}
                 className="relative w-11 h-11 md:w-20 md:h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl shadow-lg flex items-center justify-center transform transition-all duration-300 hover:scale-105"
                 style={{
                   boxShadow: '0 8px 16px rgba(0,0,0,0.1), inset 0 -2px 8px rgba(0,0,0,0.2), inset 0 2px 8px rgba(255,255,255,0.3)'
@@ -51,7 +48,8 @@ function App() {
           </div>
 
           <button
-              onClick={() => setNumbers(generateNumbers(6, 49))}
+            type="button"
+            onClick={() => setNumbers(generateNumbers(6, 49))}
             className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold text-xl py-5 px-8 rounded-2xl shadow-xl transform transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center gap-3 cursor-pointer"
           >
             <Sparkles className="w-6 h-6" />
