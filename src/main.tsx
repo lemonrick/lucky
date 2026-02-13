@@ -15,7 +15,7 @@ const isLocalhost = location.hostname === 'localhost' || location.hostname === '
 if (!isLocalhost && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
-      .register('/sw.js')
+      .register(`${import.meta.env.BASE_URL}sw.js`)
       .catch((err) => console.error('SW registration failed:', err));
   });
 }

@@ -7,3 +7,9 @@ npm install --legacy-peer-deps
 ```bash
 npm run dev
 ```
+
+Tests:
+
+```bash
+npm run test
+```

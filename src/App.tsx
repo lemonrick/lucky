@@ -1,19 +1,6 @@
 import { useState } from 'react';
 import { Sparkles } from 'lucide-react';
-
-const generateNumbers = (count: number, max: number): number[] => {
-  // Create array 1 to max
-  const pool = Array.from({ length: max }, (_, i) => i + 1);
-
-  // Fisher–Yates shuffle
-  for (let i = pool.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [pool[i], pool[j]] = [pool[j], pool[i]];
-  }
-
-  // Take the first (count) numbers and sort them ascending
-  return pool.slice(0, count).sort((a, b) => a - b);
-};
+import { generateNumbers } from './lib/generateNumbers.ts';
 
 function App() {
   const [numbers, setNumbers] = useState<number[]>(() => generateNumbers(6, 49));
